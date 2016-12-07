@@ -1,37 +1,21 @@
 // SASS helper: https://github.com/sass-mq/sass-mq
 // Parity with current breakpoints defined in _frameless.scss
+// v1
 $mq-breakpoints: (
     mobile:   480px,
     tablet:   640px,
     desktop:  942px,
 );
 
-
 /* v2
 $mq-breakpoints: (
-    xs:   320px,
-    sm:   320px,
-    md:   740px,
-    lg:   942px,
-    xl:   1300px,
+    xs:   0px,
+    sm:   544px,  // 34em
+    md:   768px,  // 48em
+    lg:   992px,  // 62em
+    xl:   1200px, // 75em
 );
-
-
-@xs:  ~"only screen and (min-width: 0)";
-
-/* 544 px 
-@sm:  ~"only screen and (min-width: 34em)";
-
-/* 768 px 
-@md:  ~"only screen and (min-width: 48em)";
-
-/* 992 px 
-@lg:  ~"only screen and (min-width: 62em)";
-
-/* 1200 px
-@xl:  ~"only screen and (min-width: 75em)";
- */
-
+*/
 
 // To enable support for browsers that do not support @media queries,
 // (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false

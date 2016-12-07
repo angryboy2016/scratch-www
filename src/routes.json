@@ -50,6 +50,13 @@
         "title": "Plan Your Visit"
     },
     {
+        "name": "components",
+        "pattern": "^/components/?$",
+        "routeAlias": "/components/?$",
+        "view": "components/components",
+        "title": "Component Library"
+    },
+    {
         "name": "conference-expectations",
         "pattern": "^/conference/expect/?$",
         "routeAlias": "/conference(?!/201[4-5])",

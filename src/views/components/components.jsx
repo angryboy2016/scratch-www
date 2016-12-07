@@ -19,7 +19,6 @@ var Components = React.createClass({
                 <h1>Button</h1>
                 <Button>I love button</Button>
                 <h1>Form</h1>
-                <Input type="text" name="test" maxLength="30" />
                 <h1>Box Component</h1>
                 <Box
                     title="Some Title"
