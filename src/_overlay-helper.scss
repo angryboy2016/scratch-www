@@ -12,3 +12,6 @@
     linear, top, transparent 23px, rgba(255, 0, 0, 0.5) 24px;
 }
 
+
+
+body:before { bottom: 0 !important } // override default mq.less, which puts breakpoint helper on top right, falls underneath chrome px notification on resize 
