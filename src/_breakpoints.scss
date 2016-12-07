@@ -1,0 +1,55 @@
+// SASS helper: https://github.com/sass-mq/sass-mq
+// Parity with current breakpoints defined in _frameless.scss
+$mq-breakpoints: (
+    mobile:   480px,
+    tablet:   640px,
+    desktop:  942px,
+);
+
+
+/* v2
+$mq-breakpoints: (
+    xs:   320px,
+    sm:   320px,
+    md:   740px,
+    lg:   942px,
+    xl:   1300px,
+);
+
+
+@xs:  ~"only screen and (min-width: 0)";
+
+/* 544 px 
+@sm:  ~"only screen and (min-width: 34em)";
+
+/* 768 px 
+@md:  ~"only screen and (min-width: 48em)";
+
+/* 992 px 
+@lg:  ~"only screen and (min-width: 62em)";
+
+/* 1200 px
+@xl:  ~"only screen and (min-width: 75em)";
+ */
+
+
+// To enable support for browsers that do not support @media queries,
+// (IE <= 8, Firefox <= 3, Opera <= 9) set $mq-responsive to false
+// Create a separate stylesheet served exclusively to these browsers,
+// meaning @media queries will be rasterized, relying on the cascade itself
+// TODO: confirm we dont need this
+/* $mq-responsive: true; */
+
+
+// If you want to display the currently active breakpoint in the top
+// right corner of your site during development, add the breakpoints
+// to this list, ordered by width, e.g. (mobile, tablet, desktop).
+$mq-show-breakpoints: (mobile, tablet, desktop);
+
+
+// TODO: set up? 
+/* @import 'path/to/mq'; */
+// With eyeglass:
+// @import 'sass-mq';
+
+

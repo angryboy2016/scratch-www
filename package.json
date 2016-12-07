@@ -63,6 +63,7 @@
     "lodash.merge": "3.3.2",
     "lodash.omit": "3.1.0",
     "lodash.range": "3.0.1",
+    "lost": "^7.1.1",
     "minilog": "2.0.8",
     "node-sass": "3.3.3",
     "pako": "0.2.8",
@@ -96,8 +97,8 @@
   },
   "nyc": {
     "include": [
-        "bin/**/*.js",
-        "src/**/*.js"
+      "bin/**/*.js",
+      "src/**/*.js"
     ],
     "all": true
   }

@@ -95,7 +95,10 @@ module.exports = {
         noParse: /node_modules\/google-libphonenumber\/dist/
     },
     postcss: function () {
-        return [autoprefixer({browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8']})];
+        return [
+            autoprefixer({browsers: ['last 3 versions', 'Safari >= 8', 'iOS >= 8']}),
+            require('lost')
+        ];
     },
     node: {
         fs: 'empty'
