@@ -1,6 +1,6 @@
 @import "../../breakpoints";    
 @import "../../mq";             // TODO: npm or direct? https://github.com/sass-mq/sass-mq
-@import "../../overlay-helper"; // TODO: build this out, https://github.com/peterramsing/lost/issues/127
+@import "../../mq-helper";      // 
 
 @import "../../colors";
 @import "../../frameless";
@@ -29,139 +29,12 @@ $base-bg: $ui-white;
     max-width: calc(100% - 2rem);
 }
 
-//4 columns
-@media only screen and (max-width: $mobile - 1) {
-
-    .title-banner {
-        &.masthead {
-            padding-bottom: 1.25rem;
-
-            p {
-                max-width: $cols4;
-            }
-        }
-    }
-
-    .ttt-section.mod-title-banner {
-        max-width: $mobile;
-    }
+.parent {
+    lost-flex-container: row;
 }
 
-//6 columns
-@media only screen and (min-width: $mobile) and (max-width: $tablet - 1) {
-    .title-banner {
-        &.masthead {
-
-            p {
-                max-width: $cols6;
-            }
-        }
-    }
-
-    .ttt-section.mod-title-banner {
-        max-width: $mobile;
-    }
+.child {
+    background: purple !important;
+    lost-column: 1/1;
 }
 
-
-//8 columns
-@media only screen and (min-width: $tablet) and (max-width: $desktop - 1) {
-    .title-banner {
-        &.masthead {
-            padding-bottom: 2rem;
-
-            p {
-                max-width: $cols8;
-            }
-        }
-    }
-
-    .ttt-section.mod-title-banner {
-        max-width: $tablet;
-    }
-}
-
-// 12 columns
-@media only screen and (min-width: $desktop) {
-    .title-banner {
-        &.masthead {
-            padding-bottom: 1.25rem;
-
-            p {
-                max-width: $cols8;
-            }
-        }
-    }
-}
-
-
-
-///////////////////////////////////////////////////
-
-.responsive {
-    // Apply styling to mobile and upwards
-    @include mq($from: mobile) {
-        color: red;
-    }
-    // Apply styling up to devices smaller than tablets (exclude tablets)
-    @include mq($until: tablet) {
-        color: blue;
-    }
-    // Same thing, in landscape orientation
-    @include mq($until: tablet, $and: '(orientation: landscape)') {
-        color: hotpink;
-    }
-    // Apply styling to tablets up to desktop (exclude desktop)
-    @include mq(tablet, desktop) {
-        color: green;
-    }
-}
-
-
-/* 
-section {
-  lost-flex-container: row;
-}
-
-.component {
-  background: #DDD;
-  height: 10em;
-  lost-column: 1/4;
-} */
-
-
-// Lost Grid: github.com/corysimmons/lost 
-
-// TODO: set root to 16px somewhere
-/* override defaults */
-@lost flexbox flex;     // use flexbox instead of floats
-@lost gutter 1em;       // splits value, so 0.5rem on each side of a column
-
-/* For debugging, showing grid */
-// TODO: this probably needs to go somewhere outside of this component
-// https://github.com/peterramsing/lost/issues/349 
-/* body { 
-  lost-utility: edit;
-} */
-
-// .hide--xs-and-sm {
-//   @media @xs  { display: none; }
-//   @media @sm  { display: none; }
-//   @media @md  { display: block; }
-//   @media @lg  { display: block; }
-//   @media @xl  { display: block; }
-// }
-
-
-// .hide--md-and-above {
-//   @media @md  { display: none; }
-// }
-
-
-// .hide--md {
-//   @media @xs  { display: block; }
-//   @media @sm  { display: block; }
-//   @media @md  { display: none; }
-//   @media @lg  { display: block; }
-//   @media @xl  { display: block; }
-// }

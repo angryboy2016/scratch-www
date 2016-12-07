@@ -56,7 +56,7 @@ var ThingsToTry = injectIntl(React.createClass({
     },
     render: function () {
         return (
-            <div className="ttt responsive">
+            <div className="ttt">
                 <TitleBanner className="masthead mod-ttt-title">
                     <section className="ttt-section">
                         <img className="ttt-banner-image" src="/svgs/ttt/resources.svg" alt=""/>

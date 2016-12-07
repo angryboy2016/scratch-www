@@ -1,0 +1,70 @@
+/////////////////////////////////////////////////////////////////////////////
+// A Sass mixin that helps you compose media queries in an elegant way
+// https://github.com/sass-mq/sass-mq
+
+// Pick breakpoints out of the subset defined in _mq.scss
+// For every breakpoint listed here, display a helper in the viewport to help debugging
+// List needs to be ordered by width: (narrow, medium, widest)
+$mq-show-breakpoints: (mobile, tablet, desktop);
+
+// By default, mixin auto-places this helper in top-right corner of viewport, which 
+// is a terrible place bc it's blocked/hidden by built in Chrome notification showing viewport size.
+// We move it to the bottom of the viewport, and also make sure it's the highest in the z-stack
+// so it doesnt conflict with any content
+body:after {
+	display: block;
+   	z-index: 100000;
+   	bottom: 0 !important;
+	position: fixed;
+	/* width: 100%; */
+	font-size: 0.90rem;
+	padding: 0.25rem 1rem;
+  
+   	// use color to futher differentiate
+	@include mq(mobile)  { background-color: rgba(0, 0, 0, 0.25); &:after { content: 'Mobile: o'; } } 
+	@include mq(tablet)  { background-color: rgba(0, 0, 0, 0.40); &:after { content: 'Tablet: o o'; } } 
+	@include mq(desktop) { background-color: rgba(0, 0, 0, 0.70); &:after { content: 'Desktop: o o o'; } } 
+
+	// Alt way of declaring
+	// @include mq($from: mobile)   { color: red; } 
+	// @include mq($from: tablet)   { color: blue; }
+	// @include mq($from: desktop)  { color: hotpink; } 
+}
+
+    
+/////////////////////////////////////////////////////////////////////////////
+// Global config for Lost Grid vars: github.com/corysimmons/lost 
+
+// TODO: set root to 16px somewhere
+@lost flexbox flex;     // use flexbox instead of floats
+@lost gutter 1em;       // splits value, so 0.5rem on each side of a column
+
+/* For debugging, showing grid */
+// TODO: this probably needs to go somewhere outside of this component
+// https://github.com/peterramsing/lost/issues/349 
+/* body { 
+  lost-utility: edit;
+} */
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+// Show an overlay of the grid columns. Helpful for debugging. Currently janky, doesnt display last column
+// TODO: build this out, https://github.com/peterramsing/lost/issues/127
+.grid-helper {
+  display: none;
+  position: absolute;
+  top: 0; 
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background-size: 80px 24px;
+  background-image:
+    linear, left, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) 60px, transparent 60px,
+    linear, top, transparent 23px, rgba(255, 0, 0, 0.5) 24px;
+}
+
+
+///////////////////////////////////////
+
