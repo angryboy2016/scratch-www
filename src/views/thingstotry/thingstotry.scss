@@ -8,7 +8,7 @@
 $base-bg: $ui-white;
 
 #view {
-    padding: 0;
+    padding: 0; // Q: what does this do?
 }
 
 // .mod-ttt-title, to avoid collision with .title-banner.mod-tt in ttt modal
@@ -16,26 +16,36 @@ $base-bg: $ui-white;
     background-color: $ui-blue;
 }
 
+
+///////////////////////
+
 .ttt-section {
-    display: flex;
-    margin: 0 auto;
-    text-align: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
+    // display: flex;
+    // flex-wrap: wrap;
+    // Instead of flex-ifying this container manually, we use Lost's PostCSS helper:
+    lost-flex-container: row;
+
+    // No need to center manually, we'll use the grid columns in the centered element
+    // + offset to position horizontally
+    // margin: 0 auto;
+    // justify-content: center;
+    // align-items: center;
+    // text-align: center;
 }
 
 .ttt-banner-image {
-    max-width: calc(100% - 2rem);
-}
 
-.parent {
-    lost-flex-container: row;
-}
+    // Instead of us calcing the width and centering it
+    // declare width in terms of grid columns. Comment this:
+    // max-width: calc(100% - 2rem); 
 
-.child {
-    background: purple !important;
-    lost-column: 1/1;
+    // Replace it with:
+    lost-column: 6/12; 
+
+    // Now let's position this element left/right according to these colums
+    lost-offset: -3/12; // Denominator needs to be the same as lost-column declare above it, or the calcs get messed up
+   
+   // side note: the negative syntax is unlike most other grid systems, they are working on it: https://github.com/peterramsing/lost#lost-offset
 }
 
 
