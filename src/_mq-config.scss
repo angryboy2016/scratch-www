@@ -18,3 +18,19 @@ $mq-breakpoints: (
 
 // TODO: why does this need to be declared before mq is included? related to if statement at bottom of mixin?
 $mq-show-breakpoints: (mobile, tablet, desktop);
+
+
+    
+/////////////////////////////////////////////////////////////////////////////
+// Global config for Lost Grid vars: github.com/corysimmons/lost 
+
+// TODO: set root to 16px somewhere
+@lost flexbox flex;     // use flexbox instead of floats
+@lost gutter 1em;       // splits value, so 0.5rem on each side of a column
+
+/* For debugging, showing grid */
+// TODO: this probably needs to go somewhere outside of this component
+// https://github.com/peterramsing/lost/issues/349 
+/* body { 
+  lost-utility: edit;
+} */

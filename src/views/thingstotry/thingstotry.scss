@@ -34,18 +34,20 @@ $base-bg: $ui-white;
 }
 
 .ttt-banner-image {
-
-    // Instead of us calcing the width and centering it
+    // Instead of us calcing the width and centering it ourselves, we
     // declare width in terms of grid columns. Comment this:
     // max-width: calc(100% - 2rem); 
 
     // Replace it with:
     lost-column: 6/12; 
+    // Lost with process this via PostCSS and output:
+    // width: calc(99.9% * 6/12 - 0.5em);  // 0.5em is based on our gutters, that we defined globally in _mq.config.scss
 
-    // Now let's position this element left/right according to these colums
+    // Now let's position this element left/right in terms of the columns we defined above
     lost-offset: -3/12; // Denominator needs to be the same as lost-column declare above it, or the calcs get messed up
    
-   // side note: the negative syntax is unlike most other grid systems, they are working on it: https://github.com/peterramsing/lost#lost-offset
+   // side note: the negative syntax is unlike most other grid systems, Bootstrap, Neat,  
+   // They are working on it: https://github.com/peterramsing/lost#lost-offset
 }
 
 
